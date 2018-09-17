@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
 	public int createUser(User u) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
-		int userPK = (int) s.save(u);
+		int userPK = (Integer) s.save(u);
 		tx.commit();
 		s.close();
 		return userPK;

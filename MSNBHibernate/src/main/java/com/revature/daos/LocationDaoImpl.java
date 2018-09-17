@@ -31,7 +31,7 @@ public class LocationDaoImpl implements LocationDao {
 	public int createLocation(Location l) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
-		int locationPK = (int) s.save(l);
+		int locationPK = (Integer) s.save(l);
 		tx.commit();
 		s.close();
 		return locationPK;
