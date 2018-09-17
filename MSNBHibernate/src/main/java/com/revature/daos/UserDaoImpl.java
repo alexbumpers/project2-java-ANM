@@ -8,25 +8,25 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
-import com.revature.models.User;
+import com.revature.models.MUser;
 import com.revature.util.HibernateUtil;
 
 public class UserDaoImpl implements UserDao {
 
-	public List<User> getUsers() {
+	public List<MUser> getUsers() {
 		Session s = HibernateUtil.getSession();
-		List<User> users = s.createQuery("from User").list();
+		List<MUser> users = s.createQuery("from User").list();
 	return users;
 	}
 
-	public User getUserById(int id) {
+	public MUser getUserById(int id) {
 		Session s = HibernateUtil.getSession();
-		User u = (User) s.get(User.class, id);
+		MUser u = (MUser) s.get(MUser.class, id);
 		s.close();
 		return u;
 	}
 
-	public int createUser(User u) {
+	public int createUser(MUser u) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		int userPK = (Integer) s.save(u);
@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao {
 		return userPK;
 	}
 
-	public void updateUser(User u) {
+	public void updateUser(MUser u) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
 		s.update(u);
@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao {
 	public void deleteUser(int id) {
 		Session s = HibernateUtil.getSession();
 		Transaction tx = s.beginTransaction();
-		User u = (User) s.get(User.class, id);
+		MUser u = (MUser) s.get(MUser.class, id);
 		if(u != null) {
 			s.delete(u);
 		}
@@ -55,19 +55,19 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	public List<User> findUsersByLocId(int i) {
+	public List<MUser> findUsersByLocId(int i) {
 		Session s = HibernateUtil.getSession();
 		String hql = "from User where loc_id = :Locat";
 		Query q = s.createQuery(hql);
 		q.setInteger("Locat", i);
-		List<User> users = q.list();
+		List<MUser> users = q.list();
 		s.close();
 		return users;
 	}
 
 	public long getUserCount() {
 		Session s = HibernateUtil.getSession();
-		Criteria c = s.createCriteria(User.class);
+		Criteria c = s.createCriteria(MUser.class);
 		c.setProjection(Projections.rowCount());
 		List<Long> rows = c.list();
 		s.close();

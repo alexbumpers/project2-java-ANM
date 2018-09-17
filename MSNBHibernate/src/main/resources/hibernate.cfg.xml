@@ -5,14 +5,14 @@
 		
 <hibernate-configuration>
     <session-factory>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@nolink:1521:ORCL</property>
-	<property name="hibernate.connection.username">nouser</property>
-	<property name="hibernate.connection.password">nopass</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@none:1521:ORCL</property>
+	<property name="hibernate.connection.username">none</property>
+	<property name="hibernate.connection.password">none</property>
 	<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-	<property name="hibernate.hbm2ddl.auto">validate</property>
+	<property name="hibernate.hbm2ddl.auto">create</property>
 	<property name="hibernate.show_sql">true</property>
 	
 	<mapping class="com.revature.models.Location"></mapping>
-	<mapping class="com.revature.models.User"></mapping>
+	<mapping class="com.revature.models.MUser"></mapping>
     </session-factory>
 </hibernate-configuration>

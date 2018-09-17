@@ -2,15 +2,15 @@ package com.revature.daos;
 
 import java.util.List;
 
-import com.revature.models.User;
+import com.revature.models.MUser;
 
 public interface UserDao {
-	public List<User> getUsers();
-	public User getUserById(int id);
-	public int createUser(User u);
-	public void updateUser(User u);
+	public List<MUser> getUsers();
+	public MUser getUserById(int id);
+	public int createUser(MUser u);
+	public void updateUser(MUser u);
 	public void deleteUser(int id);
-	public List<User> findUsersByLocId(int i);
+	public List<MUser> findUsersByLocId(int i);
 	public long getUserCount();
 
 }
