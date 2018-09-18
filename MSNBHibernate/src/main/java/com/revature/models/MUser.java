@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -33,7 +36,9 @@ public class MUser {
 		@ManyToOne
 		@JoinColumn(name="LOCATION_ID")
 		private Location location;
-		
+		@OneToMany
+		@JoinColumn(name="MUSER_ID")
+		private List<Preference> prefs;
 		
 		//some kind of implementation for user song preferences.
 		
