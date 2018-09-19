@@ -30,7 +30,7 @@ public class MUser {
 		private String lastName;
 		@Column(name="PASSWORD", columnDefinition="VARCHAR2(24)")
 		private String password;
-		@Column(name="EMAIL")
+		@Column(name="EMAIL", unique=true)
 		private String email;
 		@Column(name="PHONE_NUMBER")
 		private String phoneNumber;

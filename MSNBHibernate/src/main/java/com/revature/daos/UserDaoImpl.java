@@ -95,4 +95,15 @@ public class UserDaoImpl implements UserDao {
 		}
 		return total/1.1;
 	}
+
+	@Override
+	public MUser getUserByEmailPass(String email, String pass) {
+		Session s = HibernateUtil.getSession();
+		String hql = "from MUser where email = :eVar AND password = :pVar";
+		Query q = s.createQuery(hql);
+		q.setString("eVar", email);
+		q.setString("pVar", pass);
+		List<MUser> m = q.list();
+		return m.get(0);
+	}
 }
