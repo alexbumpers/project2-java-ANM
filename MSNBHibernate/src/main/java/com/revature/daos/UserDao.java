@@ -12,5 +12,4 @@ public interface UserDao {
 	public void deleteUser(int id);
 	public List<MUser> findUsersByLocId(int i);
 	public long getUserCount();
-
 }

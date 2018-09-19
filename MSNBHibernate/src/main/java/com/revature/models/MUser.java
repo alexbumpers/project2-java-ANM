@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table
 public class MUser {
@@ -21,24 +24,46 @@ public class MUser {
 		@SequenceGenerator(name="mUserSequence",allocationSize=1,sequenceName="SQ_MUSER_PK")
 		@Column(name="MUSER_ID")
 		private int id;
-		@Column(name="FIRST_NAME")
+		@Column(name="FIRST_NAME", columnDefinition="VARCHAR2(50)")
 		private String firstName;
-		@Column(name="LAST_NAME")
+		@Column(name="LAST_NAME", columnDefinition="VARCHAR2(50)")
 		private String lastName;
-		@Column(name="PASSWORD")
+		@Column(name="PASSWORD", columnDefinition="VARCHAR2(24)")
 		private String password;
 		@Column(name="EMAIL")
 		private String email;
 		@Column(name="PHONE_NUMBER")
 		private String phoneNumber;
-		@Column(name="ABOUT_ME")
+		@Column(name="ABOUT_ME", columnDefinition="VARCHAR(max)")
 		private String aboutMe;
-		@ManyToOne
+		@ManyToOne(fetch=FetchType.EAGER)
 		@JoinColumn(name="LOCATION_ID")
 		private Location location;
-		@OneToMany
+		@OneToMany(fetch=FetchType.EAGER)
 		@JoinColumn(name="MUSER_ID")
 		private List<Preference> prefs;
+		@Column(name="GENDER", columnDefinition="char(1)")
+		private String gender;
+		public List<Preference> getPrefs() {
+			return prefs;
+		}
+		public void setPrefs(List<Preference> prefs) {
+			this.prefs = prefs;
+		}
+		public String getGender() {
+			return gender;
+		}
+		public void setGender(String gender) {
+			this.gender = gender;
+		}
+		public String getOrientation() {
+			return orientation;
+		}
+		public void setOrientation(String orientation) {
+			this.orientation = orientation;
+		}
+		@Column(name="ORIENTATION", columnDefinition="varchar2(20)")
+		private String orientation;
 		
 		//some kind of implementation for user song preferences.
 		
@@ -155,9 +180,9 @@ public class MUser {
 		}
 		@Override
 		public String toString() {
-			return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
+			return "MUser [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
 					+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", aboutMe=" + aboutMe + ", location="
-					+ location + "]";
+					+ location + ", prefs=" + prefs + ", gender=" + gender + ", orientation=" + orientation + "]";
 		}
 		public MUser(int id, String firstName, String lastName, String password, String email, String phoneNumber,
 				String aboutMe, Location location) {

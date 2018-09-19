@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import com.revature.models.MUser;
+import com.revature.models.Preference;
 import com.revature.util.HibernateUtil;
 
 public class UserDaoImpl implements UserDao {
@@ -74,4 +75,24 @@ public class UserDaoImpl implements UserDao {
 		return rows.get(0);
 	}
 
+	public static double getMatchTotal(MUser one, MUser two) {
+		/*
+		 * The method should, when the two users have a genre match,
+		 * take the prefLevel of that genre, and add it to the total.
+		 * Then, once all of the genres have been gone through, it
+		 * divides the total by 1.1. The max should be 100. This 
+		 * number represents a percentage of match.
+		 */
+		List<Preference> user1 = one.getPrefs();
+		List<Preference> user2 = two.getPrefs();
+		double total=0.0;
+		for(Preference p1:user1) {
+			for(Preference p2:user2) {
+				if(p1.getGenre().equals(p2.getGenre())){
+					total += p1.getPrefLevel()+p2.getPrefLevel();
+				}
+			}
+		}
+		return total/1.1;
+	}
 }
