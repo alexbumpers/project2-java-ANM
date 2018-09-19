@@ -18,5 +18,7 @@ public class Driver {
 	System.out.println(user2.toString());
 	
 	System.out.println(UserDaoImpl.getMatchTotal(user1, user2));
+	
+	System.out.println(ud.getUsersByGenre("Rock"));
 	}
 }

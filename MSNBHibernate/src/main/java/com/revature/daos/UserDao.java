@@ -13,4 +13,5 @@ public interface UserDao {
 	public List<MUser> findUsersByLocId(int i);
 	public long getUserCount();
 	public MUser getUserByEmailPass(String email, String pass);
+	public List<MUser> getUsersByGenre(String genre);
 }

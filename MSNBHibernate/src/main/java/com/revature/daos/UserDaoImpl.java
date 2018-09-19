@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
@@ -105,5 +106,16 @@ public class UserDaoImpl implements UserDao {
 		q.setString("pVar", pass);
 		List<MUser> m = q.list();
 		return m.get(0);
+	}
+
+	@Override
+	public List<MUser> getUsersByGenre(String genre) {
+		Session s = HibernateUtil.getSession();
+		String sql = "select * from MUSER where MUSER_ID IN (select MUSER_ID from preference where genre = :gVar)";
+		SQLQuery q = s.createSQLQuery(sql);
+		q.addEntity(MUser.class);
+		q.setParameter("gVar", genre);
+		List<MUser> results = q.list();
+		return results;
 	}
 }
