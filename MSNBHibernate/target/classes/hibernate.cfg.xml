@@ -5,9 +5,9 @@
 		
 <hibernate-configuration>
     <session-factory>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@project2-db.cidrrjyvywxg.us-east-1.rds.amazonaws.com:1521:ORCL</property>
-	<property name="hibernate.connection.username">MSNBC</property>
-	<property name="hibernate.connection.password">carisgood</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@:1521:ORCL</property>
+	<property name="hibernate.connection.username"></property>
+	<property name="hibernate.connection.password"></property>
 	<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 	<property name="hibernate.hbm2ddl.auto">validate</property>
 	<property name="hibernate.show_sql">true</property>
