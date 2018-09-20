@@ -44,6 +44,8 @@ public class MUser {
 		private List<Preference> prefs;
 		@Column(name="GENDER", columnDefinition="char(1)")
 		private String gender;
+		@Column(name="PROF_PIC")
+		private String pictureUrl;
 		public List<Preference> getPrefs() {
 			return prefs;
 		}
