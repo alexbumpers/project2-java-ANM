@@ -14,8 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Check;
+import org.springframework.stereotype.Component;
 
+@Component
 @Entity
 @Table
 public class MUser {

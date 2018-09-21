@@ -3,8 +3,8 @@ package com.revature.models;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
@@ -12,36 +12,21 @@ import org.hibernate.annotations.Check;
 @Entity(name="Preference")
 @Table(name="preference")
 //@IdClass(PreferenceId.class)
-@Check(constraints = "PREF_LEVEL < 11")
+//@Check(constraints = "PREF_LEVEL < 11")
 public class Preference implements Serializable{
 	
-//	@EmbeddedId
-//	private PreferenceId id;
-//	
-	@Id
-	@Column(name="MUSER_ID")
-	protected int muserId;
-	@Id
-	@Column(name="PREF_LEVEL", columnDefinition="NUMBER(2,0)")
-	protected int prefLevel;
+	@EmbeddedId
+	private PreferenceId pId;
 	
 	@Column(name="GENRE", columnDefinition="VARCHAR2(30)")
 	private String genre;
 
-	public int getMuserId() {
-		return muserId;
+	public PreferenceId getpId() {
+		return pId;
 	}
 
-	public void setMuserId(int muserId) {
-		this.muserId = muserId;
-	}
-
-	public int getPrefLevel() {
-		return prefLevel;
-	}
-
-	public void setPrefLevel(int prefLevel) {
-		this.prefLevel = prefLevel;
+	public void setpId(PreferenceId pId) {
+		this.pId = pId;
 	}
 
 	public String getGenre() {
@@ -57,8 +42,7 @@ public class Preference implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
-		result = prime * result + muserId;
-		result = prime * result + prefLevel;
+		result = prime * result + ((pId == null) ? 0 : pId.hashCode());
 		return result;
 	}
 
@@ -76,22 +60,22 @@ public class Preference implements Serializable{
 				return false;
 		} else if (!genre.equals(other.genre))
 			return false;
-		if (muserId != other.muserId)
-			return false;
-		if (prefLevel != other.prefLevel)
+		if (pId == null) {
+			if (other.pId != null)
+				return false;
+		} else if (!pId.equals(other.pId))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Preference [muserId=" + muserId + ", prefLevel=" + prefLevel + ", genre=" + genre + "]";
+		return "Preference [pId=" + pId + ", genre=" + genre + "]";
 	}
 
-	public Preference(int muserId, int prefLevel, String genre) {
+	public Preference(PreferenceId pId, String genre) {
 		super();
-		this.muserId = muserId;
-		this.prefLevel = prefLevel;
+		this.pId = pId;
 		this.genre = genre;
 	}
 
@@ -99,7 +83,6 @@ public class Preference implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
+
+
 }
