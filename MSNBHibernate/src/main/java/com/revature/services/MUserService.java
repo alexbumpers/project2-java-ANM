@@ -11,4 +11,5 @@ public interface MUserService {
 	public MUser updateMUser(MUser mUser);
 	public MUser deleteMUser(MUser mUser);
 	public MUser login(String email, String password);
+	List<MUser> findMUserByGenre(String gVar);
 }

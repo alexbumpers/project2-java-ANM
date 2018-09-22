@@ -12,4 +12,5 @@ public interface PreferenceService {
 	public Preference addPreference(Preference newPreference);
 	public Preference updatePreference(Preference preference);
 	public Preference deletePreference(Preference preference);
+	public List<Preference> findPreferencesByGenre(String genre);
 }

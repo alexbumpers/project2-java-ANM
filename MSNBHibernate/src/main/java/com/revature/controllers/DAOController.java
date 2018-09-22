@@ -113,4 +113,9 @@ public class DAOController {
 	public MUser loggedInMUser(@RequestParam("email") String email, @RequestParam("password") String password) {
 		return mUserService.login(email, password);
 	}
+	
+	@GetMapping(value="/users/genre/{genre}", produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<MUser> getMUsersByGenre(@PathVariable("genre") String genre) {
+		return mUserService.findMUserByGenre(genre);
+	}
 }

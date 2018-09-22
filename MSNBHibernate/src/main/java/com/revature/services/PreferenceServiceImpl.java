@@ -40,5 +40,10 @@ public class PreferenceServiceImpl implements PreferenceService {
 		prefRepo.delete(preference);
 		return preference;
 	}
+	
+	@Override
+	public List<Preference> findPreferencesByGenre(String genre){
+		return prefRepo.findPreferencesByGenre(genre);
+	}
 
 }
