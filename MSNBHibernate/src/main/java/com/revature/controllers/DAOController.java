@@ -53,7 +53,7 @@ public class DAOController {
 		return mUserService.findMUserById(id);
 	}
 	
-	@GetMapping(value="/users/{email}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/users/byemail/{email}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public MUser getMUserByUsername(@PathVariable("email") String email) {
 		return mUserService.findMUserByUsername(email);
 	}

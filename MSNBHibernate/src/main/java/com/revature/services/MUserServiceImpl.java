@@ -64,7 +64,6 @@ public class MUserServiceImpl implements MUserService {
 
 	@Override
 	public MUser findMUserByUsername(String email) {
-		// TODO Auto-generated method stub
 		return mUserRepo.getMUserByEmail(email);
 	}
 }
