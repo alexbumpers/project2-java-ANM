@@ -12,4 +12,6 @@ import com.revature.models.MUser;
 @Repository
 public interface MUserRepository extends JpaRepository<MUser,Integer>{
 	public MUser findMUserByEmailAndPassword(String email, String password);
+
+	public MUser getMUserByEmail(String email);
 }
