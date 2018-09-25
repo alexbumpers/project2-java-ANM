@@ -2,6 +2,7 @@ package com.revature.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,7 +44,7 @@ public class MUser {
 		private String phoneNumber;
 		@Column(name="ABOUT_ME", columnDefinition="VARCHAR(max)")
 		private String aboutMe;
-		@ManyToOne(fetch=FetchType.EAGER)
+		@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 		@JoinColumn(name="LOCATION_ID")
 		@NotNull(message="WHERE U AT")
 		private Location location;
