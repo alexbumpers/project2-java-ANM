@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Location {
+public class Location implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6552757659886787454L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="locationSequence")
 	@SequenceGenerator(name="locationSequence",allocationSize=1,sequenceName="SQ_LOCATION_PK")

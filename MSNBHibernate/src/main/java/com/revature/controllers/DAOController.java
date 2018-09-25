@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.models.Location;
@@ -141,6 +140,13 @@ public class DAOController {
 		HttpSession s = request.getSession();
 		int id= Integer.parseInt(s.getAttribute("id").toString());
 		return mUserService.findMUserById(id);
+	}
+	
+	@GetMapping(value="/session")
+	@ResponseBody
+	public MUser session(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession s = request.getSession(false);
+		return mUserService.findMUserById(Integer.parseInt(s.getAttribute("id").toString()));
 	}
 	
 	@GetMapping(value="/logins/{id}")
