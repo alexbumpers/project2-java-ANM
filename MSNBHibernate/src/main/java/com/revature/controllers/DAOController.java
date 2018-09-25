@@ -135,12 +135,24 @@ public class DAOController {
 		return preferenceService.deletePreference(p);
 	}
 	
-	@PostMapping(value="/logins")
+	@GetMapping(value="/logins/{id}")
 	@ResponseBody
-	public MUser loggedInMUser(@RequestParam("emailAddress") String email, @RequestParam("password") String password, HttpServletRequest request, HttpServletResponse response) {
-		MUser u = mUserService.login(email, password);
+	public MUser loggedInMUser(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		MUser u = mUserService.findMUserById(id);
 		HttpSession s = request.getSession();
 		s.setAttribute("email", u.getEmail());
+		s.setAttribute("firstName",u.getFirstName());
+		s.setAttribute("lastName", u.getLastName());
+		s.setAttribute("aboutMe", u.getAboutMe());
+		s.setAttribute("gender", u.getGender());
+		s.setAttribute("id", u.getId());
+		s.setAttribute("location", u.getLocation());
+		s.setAttribute("orientation", u.getOrientation());
+		s.setAttribute("password", u.getPassword());
+		s.setAttribute("phoneNumber", u.getPhoneNumber());
+		s.setAttribute("pictureUrl", u.getPictureUrl());
+		s.setAttribute("prefs", u.getPrefs());
+		
 		
 //		RequestDispatcher rd = request.getRequestDispatcher("Http://192.168.61.203:4200/profile");
 //		try {
@@ -150,7 +162,7 @@ public class DAOController {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
-		return mUserService.login(email, password);
+		return mUserService.findMUserById(id);
 	}
 	
 	@GetMapping(value="/users/genre/{genre}", produces=MediaType.APPLICATION_JSON_VALUE)

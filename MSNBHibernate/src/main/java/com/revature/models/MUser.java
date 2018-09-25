@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
@@ -26,12 +28,16 @@ public class MUser {
 		@Column(name="MUSER_ID")
 		private int id;
 		@Column(name="FIRST_NAME", columnDefinition="VARCHAR2(50)")
+		@NotNull(message="Everyone has a name, dumbo.")
 		private String firstName;
 		@Column(name="LAST_NAME", columnDefinition="VARCHAR2(50)")
 		private String lastName;
 		@Column(name="PASSWORD", columnDefinition="VARCHAR2(24)")
+		@NotNull(message="How are you going to log in without a password?")
 		private String password;
 		@Column(name="EMAIL", unique=true)
+		@NotNull(message="Better put in an email, person.")
+		@Email(message="That shit don't look like an email.")
 		private String email;
 		@Column(name="PHONE_NUMBER")
 		private String phoneNumber;
@@ -39,6 +45,7 @@ public class MUser {
 		private String aboutMe;
 		@ManyToOne(fetch=FetchType.EAGER)
 		@JoinColumn(name="LOCATION_ID")
+		@NotNull(message="WHERE U AT")
 		private Location location;
 		@OneToMany(fetch=FetchType.EAGER)
 		@JoinColumn(name="MUSER_ID")
@@ -202,6 +209,12 @@ public class MUser {
 		public MUser() {
 			super();
 			// TODO Auto-generated constructor stub
+		}
+		public String getPictureUrl() {
+			return pictureUrl;
+		}
+		public void setPictureUrl(String pictureUrl) {
+			this.pictureUrl = pictureUrl;
 		}
 		
 		
