@@ -7,8 +7,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Check;
-
 @Entity(name="Preference")
 @Table(name="preference")
 //@IdClass(PreferenceId.class)

@@ -1,7 +1,6 @@
 package com.revature.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.revature.models.Preference;
 import com.revature.models.PreferenceId;
