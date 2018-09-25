@@ -135,6 +135,14 @@ public class DAOController {
 		return preferenceService.deletePreference(p);
 	}
 	
+	@GetMapping(value="/profile")
+	@ResponseBody
+	public MUser getProfile(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession s = request.getSession();
+		int id= Integer.parseInt(s.getAttribute("id").toString());
+		return mUserService.findMUserById(id);
+	}
+	
 	@GetMapping(value="/logins/{id}")
 	@ResponseBody
 	public MUser loggedInMUser(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response) {
