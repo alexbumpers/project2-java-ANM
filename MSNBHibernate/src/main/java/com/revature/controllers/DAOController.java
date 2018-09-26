@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -121,11 +122,18 @@ public class DAOController {
 		return locationService.findLocationById(id);
 	}
 	
-	@GetMapping(value="/preferences/{id}/{pLevel}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/preferences/pref/{id}/{pLevel}", produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Preference getPreferenceById(@PathVariable("id") int id, @PathVariable("pLevel") int pLevel) {
 		PreferenceId pId = new PreferenceId(id,pLevel);
 		return preferenceService.findPreferenceByKey(pId);
+	}
+	
+	@GetMapping(value="/preferences/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Preference> getPreferencesByUserId(@PathVariable("id") int id){
+		List<Preference> preferences= preferenceService.findAllPreferences();
+		return preferences.stream().filter(pref -> pref.getpId().getmuser_id()==id).collect(Collectors.toList());
 	}
 	
 	@PostMapping(value="/users",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
