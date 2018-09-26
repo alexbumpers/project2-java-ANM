@@ -66,4 +66,16 @@ public class MUserServiceImpl implements MUserService {
 	public MUser findMUserByUsername(String email) {
 		return mUserRepo.getMUserByEmail(email);
 	}
+	@Override
+	public float matchTwoUsers(MUser one, MUser two) {
+		float score = 0.0F;
+		for(Preference p: one.getPrefs()) {
+			for(Preference t: two.getPrefs()) {
+				if(p.getGenre().equals(t.getGenre())) {
+					score += p.getpId().getpLevel()+t.getpId().getpLevel();
+				}
+			}
+		}
+		return score/1.1F;
+	}
 }

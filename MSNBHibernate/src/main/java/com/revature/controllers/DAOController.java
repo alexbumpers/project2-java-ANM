@@ -184,4 +184,10 @@ public class DAOController {
 	public List<MUser> getMUsersByGenre(@PathVariable("genre") String genre) {
 		return mUserService.findMUserByGenre(genre);
 	}
+	
+	@GetMapping(value="/users/match/{one}/{two}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public float getMatchScore(@PathVariable("one") int one, @PathVariable("two") int two) {
+		return mUserService.matchTwoUsers(mUserService.findMUserById(one), mUserService.findMUserById(two));
+	}
 }
