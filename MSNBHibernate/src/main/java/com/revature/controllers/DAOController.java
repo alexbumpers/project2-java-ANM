@@ -98,6 +98,13 @@ public class DAOController {
 		return preferenceService.addPreference(p);
 	}
 	
+	@PutMapping(value="/preferences/add/{id}/{pLevel}/{genre}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Preference addPreferencePath(@PathVariable("id") int id, @PathVariable("pLevel") int pLevel, @PathVariable("genre") String genre) {
+		Preference p = new Preference(new PreferenceId(id,pLevel),genre);
+		return preferenceService.addPreference(p);
+	}
+	
 	@PutMapping(value="/users",consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public MUser updateUser(@RequestBody MUser m) {
