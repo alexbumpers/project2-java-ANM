@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.models.Friend;
 import com.revature.models.Location;
 import com.revature.models.MUser;
 import com.revature.models.Preference;
 import com.revature.models.PreferenceId;
+import com.revature.services.FriendService;
 import com.revature.services.LocationService;
 import com.revature.services.MUserService;
 import com.revature.services.PreferenceService;
@@ -33,6 +35,9 @@ public class DAOController {
 	
 	@Autowired
 	PreferenceService preferenceService;
+	
+	@Autowired
+	FriendService friendService;
 	
 	@Autowired
 	LocationService locationService;
@@ -52,6 +57,50 @@ public class DAOController {
 	@ResponseBody
 	public List<MUser> findAllUsers(){
 		return mUserService.findAllMUsers();
+	}
+	
+	@GetMapping(value="/friends", produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Friend> findAllFriends(){
+		return friendService.findAllFriends();
+	}
+	
+	@GetMapping(value="/friends/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Friend findFriendById(@PathVariable("id") int id){
+		return friendService.findFriendById(id);
+	}
+	
+	@GetMapping(value="/friends/p/{person}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Friend> findFriendByPerson(@PathVariable("person") int person){
+		return friendService.findFriendsByPerson(person);
+	}
+	
+	@GetMapping(value="/friends/i/{isFriendsWith}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Friend> findFriendByIsFriendsWith(@PathVariable("isFriendsWith") int isFriendsWith){
+		return friendService.findFriendsByIsFriendsWith(isFriendsWith);
+	}
+	
+	@PutMapping(value="/friends",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Friend updateFriend(Friend friend) {
+		friendService.addFriend(friend);
+		return friend;
+	}
+	
+	@PostMapping(value="/friends",consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Friend addFriend(@RequestBody Friend friend) {
+		friendService.addFriend(friend);
+		return friend;
+	}
+	
+	@DeleteMapping(value="/friends/{id}", consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void deleteFriend(Friend friend) {
+		friendService.deleteFriend(friend);
 	}
 	
 	@GetMapping(value="/users/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
