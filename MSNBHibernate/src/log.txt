@@ -1,0 +1,1 @@
+2018-09-26 21:16:27 INFO  root:15 - execution(DAOController.findAllUsers()) method was called
