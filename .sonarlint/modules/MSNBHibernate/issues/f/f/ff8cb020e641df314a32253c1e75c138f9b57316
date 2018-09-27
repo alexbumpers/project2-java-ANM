@@ -1,0 +1,22 @@
+
+ˆsquid:S3973œ"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Æ”šãH¹RCRITICALZ
+CODE_SMELL
+ˆsquid:S3973¦"WUse curly braces or indentation to denote the code conditionally executed by this "if".(Å›‘HºRCRITICALZ
+CODE_SMELL
+‡squid:S3973­"WUse curly braces or indentation to denote the code conditionally executed by this "if".(öğ´9H»RCRITICALZ
+CODE_SMELL
+usquid:S00107Æ"AConstructor has 8 parameters, which is greater than 7 authorized.(ø€ÅàÿÿÿÿÿH¼RMAJORZ
+CODE_SMELL
+ˆsquid:S3973²"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¤°ŠôH½RCRITICALZ
+CODE_SMELL
+ƒsquid:S3776‘"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÜÑãH¾RCRITICALZ
+CODE_SMELL
+dsquid:S1135Ô"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿH¿RINFOZ
+CODE_SMELL
+–squid:S2637Ò"h"firstName" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(ÿƒñÁ8’ó˜óà,HÀRMINORZBUG
+squid:S3973·"WUse curly braces or indentation to denote the code conditionally executed by this "if".(‹»¢’ûÿÿÿÿHÁRCRITICALZ
+CODE_SMELL
+squid:S3973¼"WUse curly braces or indentation to denote the code conditionally executed by this "if".(¥ª¥ÄşÿÿÿÿHÂRCRITICALZ
+CODE_SMELL
+squid:S3973¡"WUse curly braces or indentation to denote the code conditionally executed by this "if".(ÁÀŸÈÿÿÿÿÿHÃRCRITICALZ
+CODE_SMELL

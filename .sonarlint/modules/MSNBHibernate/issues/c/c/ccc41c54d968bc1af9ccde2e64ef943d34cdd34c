@@ -1,0 +1,4 @@
+
+‘squid:S2637R"e"person" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(¶ÆÊ_8ŽÄÓžá,HÄRMINORZBUG
+zsquid:S1126D"AReplace this if-then-else statement by a single return statement.(¸ù‡Áüÿÿÿÿ8ŽÄÓžá,HÅRMINORZ
+CODE_SMELL
