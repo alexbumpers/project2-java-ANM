@@ -13,6 +13,11 @@ import javax.persistence.Table;
 //@Check(constraints = "PREF_LEVEL < 11")
 public class Preference implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -816680900028514103L;
+
 	@EmbeddedId
 	private PreferenceId pId;
 	
