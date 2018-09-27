@@ -65,15 +65,15 @@ public class Location implements Serializable{
 		if (city == null) {
 			if (other.city != null)
 				return false;
-		} else if (!city.equals(other.city))
-			return false;
+		} else if (!city.equals(other.city)) {
+			return false;}
 		if (id != other.id)
 			return false;
 		if (state == null) {
 			if (other.state != null)
 				return false;
-		} else if (!state.equals(other.state))
-			return false;
+		} else if (!state.equals(other.state)) {
+			return false;}
 		return true;
 	}
 	@Override
@@ -88,7 +88,6 @@ public class Location implements Serializable{
 	}
 	public Location() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 }

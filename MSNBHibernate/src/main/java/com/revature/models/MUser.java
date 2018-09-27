@@ -153,40 +153,47 @@ public class MUser {
 			if (aboutMe == null) {
 				if (other.aboutMe != null)
 					return false;
-			} else if (!aboutMe.equals(other.aboutMe))
-				return false;
+			} else if (!aboutMe.equals(other.aboutMe)) {
+				return false;}
+			
 			if (email == null) {
 				if (other.email != null)
 					return false;
-			} else if (!email.equals(other.email))
-				return false;
+			} else if (!email.equals(other.email)) {
+				return false;}
+			
 			if (firstName == null) {
 				if (other.firstName != null)
 					return false;
-			} else if (!firstName.equals(other.firstName))
-				return false;
+			} else if (!firstName.equals(other.firstName)) {
+				return false;}
+			
 			if (id != other.id)
 				return false;
 			if (lastName == null) {
 				if (other.lastName != null)
 					return false;
-			} else if (!lastName.equals(other.lastName))
-				return false;
+			} else if (!lastName.equals(other.lastName)) {
+				return false;}
+			
 			if (location == null) {
 				if (other.location != null)
 					return false;
-			} else if (!location.equals(other.location))
-				return false;
+			} else if (!location.equals(other.location)) {
+				return false;}
+			
 			if (password == null) {
 				if (other.password != null)
 					return false;
-			} else if (!password.equals(other.password))
-				return false;
+			} else if (!password.equals(other.password)) {
+				return false;}
+			
 			if (phoneNumber == null) {
 				if (other.phoneNumber != null)
 					return false;
-			} else if (!phoneNumber.equals(other.phoneNumber))
-				return false;
+			} else if (!phoneNumber.equals(other.phoneNumber)) {
+				return false;}
+			
 			return true;
 		}
 		@Override
@@ -209,7 +216,11 @@ public class MUser {
 		}
 		public MUser() {
 			super();
-			// TODO Auto-generated constructor stub
+			this.firstName="Defaadsffult";
+			this.password="passwoadsfrd";
+			this.email="default@email.com";
+			this.location = new Location(0,"City","Default");
+			
 		}
 		public String getPictureUrl() {
 			return pictureUrl;

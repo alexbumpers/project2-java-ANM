@@ -2,8 +2,6 @@ package com.revature.controllertest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +29,14 @@ public class DAOControllerTest {
 	
 	@Autowired
 	private TestRestTemplate restTemplate;
-
+	
 	@Test
 	public void returnAUser() {
 		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/users/1", MUser.class).getFirstName()).isNotNull();
 	}
 	@Test
-	public void returnsNotAUser() {
-		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/users/0", MUser.class).getEmail()).isNull();
+	public void returnsDefaultUser() {
+		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/users/0", MUser.class).getEmail()).toString().equals("default@email.com");
 	}
 	@Test
 	public void returnAPreference() {
@@ -50,10 +48,39 @@ public class DAOControllerTest {
 	}
 	@Test
 	public void returnALocation() {
-		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/locations/1", Location.class).getCity()).isNotNull();
+		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/locations/1", Location.class)).isInstanceOf(Location.class);
 	}
 	@Test
-	public void returnsAList() {
-		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/preferences/", List.class)).isInstanceOf(List.class);
+	public void returnsMartin() {
+		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/users/byemail/msmallwood@rev.com", MUser.class).getFirstName().equals("Martin")).isTrue();
 	}
+	@Test
+	public void returnsReston() {
+		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/locations/1", Location.class).getCity().equals("Reston")).isTrue();
+	}
+	@Test
+	public void returnsMartinsRockPref() {
+		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/preferences/pref/1/1", Preference.class).getGenre().equals("rock")).isTrue();
+	}
+	
+	
+	
+//	@Test
+//	public void returnsAListOfPreferences() {
+//		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/preferences/", List.class)).asList().first().isInstanceOf(Preference.class);
+//	}
+//	@Test
+//	public void returnsAListOfLocations() {
+//		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/locations/", List.class).contains(Location.class));
+//	}
+//	@Test
+//	public void returnsAListOfMUsers() {
+//		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/users/", List.class).contains(MUser.class));
+//	}
+//	@Test
+//	public void returnsAListOfFriends() {
+//		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/friends/", List.class).contains(Friend.class));
+//	}
+	
+	
 }

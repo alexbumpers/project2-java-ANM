@@ -81,6 +81,8 @@ public class Friend {
 	}
 	public Friend() {
 		super();
+		this.person = 0;
+		this.isFriendsWith = 0;
 	}
 	
 	

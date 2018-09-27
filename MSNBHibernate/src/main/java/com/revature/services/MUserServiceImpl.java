@@ -77,7 +77,7 @@ public class MUserServiceImpl implements MUserService {
 		for(Preference p: one.getPrefs()) {
 			for(Preference t: two.getPrefs()) {
 				if(p.getGenre().equals(t.getGenre())) {
-					score += p.getpId().getpLevel()+t.getpId().getpLevel();
+					score += (11-p.getpId().getpLevel())+(11-t.getpId().getpLevel());
 				}
 			}
 		}

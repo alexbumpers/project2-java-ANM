@@ -77,7 +77,8 @@ public class PreferenceId implements Serializable {
 
 		public PreferenceId() {
 			super();
-			// TODO Auto-generated constructor stub
+			this.muser_id=0;
+			this.pLevel=1;
 		}
 
 		

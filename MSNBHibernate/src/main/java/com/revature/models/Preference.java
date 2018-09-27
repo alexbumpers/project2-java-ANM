@@ -61,13 +61,13 @@ public class Preference implements Serializable{
 		if (genre == null) {
 			if (other.genre != null)
 				return false;
-		} else if (!genre.equals(other.genre))
-			return false;
+		} else if (!genre.equals(other.genre)) {
+			return false;}
 		if (pId == null) {
 			if (other.pId != null)
 				return false;
-		} else if (!pId.equals(other.pId))
-			return false;
+		} else if (!pId.equals(other.pId)) {
+			return false;}
 		return true;
 	}
 
@@ -84,7 +84,6 @@ public class Preference implements Serializable{
 
 	public Preference() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 
