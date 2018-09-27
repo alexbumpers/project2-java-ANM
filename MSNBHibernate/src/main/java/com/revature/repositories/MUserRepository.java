@@ -1,5 +1,7 @@
 package com.revature.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +12,6 @@ public interface MUserRepository extends JpaRepository<MUser,Integer>{
 	public MUser findMUserByEmailAndPassword(String email, String password);
 
 	public MUser getMUserByEmail(String email);
+	
+	public List<MUser> findByFirstNameIgnoreCaseStartingWith(String firstName);
 }

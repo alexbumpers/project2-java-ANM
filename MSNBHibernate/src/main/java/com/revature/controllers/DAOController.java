@@ -112,6 +112,12 @@ public class DAOController {
 		return mUserService.findMUserById(id);
 	}
 	
+	@GetMapping(value="/users/name/{name}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<MUser> findByFirstName(@PathVariable("name") String firstName){
+		return mUserService.findByFirstName(firstName);
+	}
+	
 	@GetMapping(value="/users/byemail/{email}", produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public MUser getMUserByUsername(@PathVariable("email") String email) {

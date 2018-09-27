@@ -90,3 +90,9 @@
 2018-09-26 23:33:06 INFO  root:15 - execution(DAOController.findAllPreferences()) method was called
 2018-09-26 23:33:57 INFO  root:15 - execution(DAOController.getPreferenceById(..)) method was called
 2018-09-26 23:48:18 INFO  root:15 - execution(DAOController.findAllUsers()) method was called
+2018-09-27 09:44:20 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called
+2018-09-27 09:44:31 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called
+2018-09-27 09:46:59 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called
+2018-09-27 09:47:09 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called
+2018-09-27 09:47:13 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called
+2018-09-27 09:47:16 INFO  root:15 - execution(DAOController.findByFirstName(..)) method was called

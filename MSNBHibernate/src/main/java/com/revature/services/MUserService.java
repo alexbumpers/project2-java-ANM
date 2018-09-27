@@ -11,7 +11,8 @@ public interface MUserService {
 	public MUser updateMUser(MUser mUser);
 	public MUser deleteMUser(MUser mUser);
 	public MUser login(String email, String password);
-	List<MUser> findMUserByGenre(String gVar);
+	public List<MUser> findMUserByGenre(String gVar);
 	public MUser findMUserByUsername(String username);
 	public float matchTwoUsers(MUser one, MUser two);
+	public List<MUser> findByFirstName(String firstName);
 }

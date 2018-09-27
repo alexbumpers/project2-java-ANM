@@ -45,6 +45,11 @@ public class MUserServiceImpl implements MUserService {
 		mUserRepo.delete(mUser);
 		return mUser;
 	}
+	
+	@Override
+	public List<MUser> findByFirstName(String firstName) {
+		return mUserRepo.findByFirstNameIgnoreCaseStartingWith(firstName);
+	}
 
 	@Override
 	public MUser login(String email, String password) {
@@ -78,4 +83,6 @@ public class MUserServiceImpl implements MUserService {
 		}
 		return score/1.1F;
 	}
+
+
 }
