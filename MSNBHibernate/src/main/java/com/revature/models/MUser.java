@@ -29,16 +29,16 @@ public class MUser {
 		@Column(name="MUSER_ID")
 		private int id;
 		@Column(name="FIRST_NAME", columnDefinition="VARCHAR2(50)")
-		@NotNull(message="Everyone has a name, dumbo.")
+		@NotNull(message="First Name required.")
 		private String firstName;
 		@Column(name="LAST_NAME", columnDefinition="VARCHAR2(50)")
 		private String lastName;
 		@Column(name="PASSWORD", columnDefinition="VARCHAR2(24)")
-		@NotNull(message="How are you going to log in without a password?")
+		@NotNull(message="Password required.")
 		private String password;
 		@Column(name="EMAIL", unique=true)
-		@NotNull(message="Better put in an email, person.")
-		@Email(message="That shit don't look like an email.")
+		@NotNull(message="Email required.")
+		@Email(message="Not an email.")
 		private String email;
 		@Column(name="PHONE_NUMBER")
 		private String phoneNumber;

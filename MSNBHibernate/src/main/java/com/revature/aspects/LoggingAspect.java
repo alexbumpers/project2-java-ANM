@@ -6,6 +6,11 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+/**
+ * Simply logs the call for each method.
+ * @author Small
+ *
+ */
 @Aspect
 @Component
 public class LoggingAspect {

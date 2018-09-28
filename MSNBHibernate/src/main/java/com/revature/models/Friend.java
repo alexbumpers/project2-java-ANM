@@ -14,15 +14,29 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table
+/**
+ * Spring Bean used to configure the Friend table.
+ * @author Small
+ *
+ */
 public class Friend {
 	
+	/**
+	 * Primary key referring to a specific pairing of people.
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="friendSequence")
 	@SequenceGenerator(name="friendSequence",allocationSize=1,sequenceName="SQ_FRND_PK")
 	@Column(name="FRND_ID")
 	private int id;
+	/**
+	 * Foreign key referring to a specific person.
+	 */
 	@NotNull
 	private int person;
+	/**
+	 * Foreign key referring to a specific person.
+	 */
 	@NotNull
 	private int isFriendsWith;
 	public int getId() {

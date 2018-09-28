@@ -10,20 +10,33 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Spring Bean used to configure the Location table.
+ * @author Small
+ *
+ */
 @Entity
 @Table
 public class Location implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -6552757659886787454L;
+	
+	/**
+	 * Primary key referring to a City/State.
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="locationSequence")
 	@SequenceGenerator(name="locationSequence",allocationSize=1,sequenceName="SQ_LOCATION_PK")
 	@Column(name="LOCATION_ID")
 	private int id;
+	/**
+	 * Name of a particular City
+	 */
 	@Column(name="CITY")
 	private String city;
+	/**
+	 * Name of a particular State
+	 */
 	@Column(name="STATE")
 	private String state;
 	public int getId() {
