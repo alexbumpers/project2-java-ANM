@@ -15,6 +15,7 @@ com\revature\repositories\MUserRepository.class
 com\revature\services\FriendService.class
 com\revature\repositories\FriendRepository.class
 com\revature\repositories\LocationRepository.class
+com\revature\WebConfig.class
 com\revature\models\MUser.class
 com\revature\services\LocationService.class
 com\revature\services\PreferenceServiceImpl.class
