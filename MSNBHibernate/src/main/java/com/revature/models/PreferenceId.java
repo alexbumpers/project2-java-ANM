@@ -7,6 +7,11 @@ import javax.persistence.JoinColumn;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Composite key of Preference object.
+ * @author Small
+ *
+ */
 @Embeddable
 public class PreferenceId implements Serializable {
 	
@@ -15,10 +20,15 @@ public class PreferenceId implements Serializable {
 	 */
 	private static final long serialVersionUID = -1545035625149103003L;
 
+		/**
+		 * Foreign key referring to a user.
+		 */
 		@NotNull
 		@JoinColumn(name="MUSER_ID", referencedColumnName="MUSER_ID")
 	    private int muser_id;
-
+		/**
+		 * An integer value referring to a user's preference level.
+		 */
 	    @NotNull
 	    @Size(max = 10)
 	    private int pLevel;

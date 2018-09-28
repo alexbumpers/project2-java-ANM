@@ -7,6 +7,11 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * Spring Bean for user Preferences.
+ * @author Small
+ *
+ */
 @Entity(name="Preference")
 @Table(name="preference")
 //@IdClass(PreferenceId.class)
@@ -18,9 +23,14 @@ public class Preference implements Serializable{
 	 */
 	private static final long serialVersionUID = -816680900028514103L;
 
+	/**
+	 * Composite key of a UserId and a PreferenceLevel.
+	 */
 	@EmbeddedId
 	private PreferenceId pId;
-	
+	/**
+	 * User's preferred genre.
+	 */
 	@Column(name="GENRE", columnDefinition="VARCHAR2(30)")
 	private String genre;
 

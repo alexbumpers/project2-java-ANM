@@ -19,40 +19,92 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * Spring Bean of MUser model
+ * Named "MUser" because of Database restrictions.
+ * Please any references to "MUser" or "User" refer to this object.
+ * @author Small
+ *
+ */
 @Component
 @Entity
 @Table
 public class MUser {
+		/**
+		 * Primary key of User.
+		 */
 		@Id
 		@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="mUserSequence")
 		@SequenceGenerator(name="mUserSequence",allocationSize=1,sequenceName="SQ_MUSER_PK")
 		@Column(name="MUSER_ID")
 		private int id;
+		/**
+		 * First name of user.
+		 * Required.
+		 */
 		@Column(name="FIRST_NAME", columnDefinition="VARCHAR2(50)")
 		@NotNull(message="First Name required.")
 		private String firstName;
+		/**
+		 * Last name of user. 
+		 * Nullable.
+		 */
 		@Column(name="LAST_NAME", columnDefinition="VARCHAR2(50)")
 		private String lastName;
+		/**
+		 * Password of user.
+		 * Required.
+		 */
 		@Column(name="PASSWORD", columnDefinition="VARCHAR2(24)")
 		@NotNull(message="Password required.")
 		private String password;
+		/**
+		 * Email of user.
+		 * Required unique.
+		 */
 		@Column(name="EMAIL", unique=true)
 		@NotNull(message="Email required.")
 		@Email(message="Not an email.")
 		private String email;
+		/**
+		 * Phone number of user.
+		 * Nullable.
+		 */
 		@Column(name="PHONE_NUMBER")
 		private String phoneNumber;
+		/**
+		 * String with a short description of the user.
+		 * Nullable.
+		 */
 		@Column(name="ABOUT_ME", columnDefinition="VARCHAR(max)")
 		private String aboutMe;
+		/**
+		 * Location Id of user.
+		 * Required.
+		 * Foreign key to Location table.
+		 */
 		@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 		@JoinColumn(name="LOCATION_ID")
-		@NotNull(message="WHERE U AT")
+		@NotNull(message="General location required for your convenience.")
 		private Location location;
+		/**
+		 * List of user's preferences.
+		 * Nullable.
+		 * Max of 10.
+		 */
 		@OneToMany(fetch=FetchType.EAGER)
 		@JoinColumn(name="MUSER_ID")
 		private List<Preference> prefs;
+		/**
+		 * User's gender.
+		 * Nullable.
+		 */
 		@Column(name="GENDER", columnDefinition="char(1)")
 		private String gender;
+		/**
+		 * User's profile picture URL.
+		 * Nullable.
+		 */
 		@Column(name="PROF_PIC")
 		private String pictureUrl;
 		public List<Preference> getPrefs() {
