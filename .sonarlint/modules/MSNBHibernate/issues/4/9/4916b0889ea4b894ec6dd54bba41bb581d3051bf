@@ -1,0 +1,16 @@
+
+†squid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â®õä8‹Ø®òß,H¢RMINORZ
+CODE_SMELL
+ˆsquid:S00116"SRename this field "muser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÎÚì8®­àòß,H£RMINORZ
+CODE_SMELL
+ƒsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜†«²8‹Ø®òß,H¤RMINORZ
+CODE_SMELL
+jsquid:S1135P"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8‹Ø®òß,H¥RINFOZ
+CODE_SMELL
+†squid:S00117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãàÕ±8‹Ø®òß,H¦RMINORZ
+CODE_SMELL
+”squid:S2637N"g"muser_id" is marked "javax.validation.constraints.NotNull" but is not initialized in this constructor.(¬¾Á–8‹Ø®òß,H§RMINORZBUG
+ƒsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â®õä8‹Ø®òß,H¨RMINORZ
+CODE_SMELL
+usquid:S1126>"AReplace this if-then-else statement by a single return statement.(´—½8†Ø•ñß,H©RMINORZ
+CODE_SMELL
